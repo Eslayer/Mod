@@ -74,13 +74,11 @@ spring:
             - Path=/api/restaurants,/api/restaurants/**
 
         # ===== Inventory Service (8082) =====
-        # Controller: /inventory/**  (sin prefijo /api)
+        # Controller: /api/inventory/**
         - id: inventory-service
           uri: "${INVENTORY_SERVICE_URI:http://localhost:8082}"
           predicates:
             - Path=/api/inventory,/api/inventory/**
-          filters:
-            - RewritePath=/api/inventory(?<segment>/?.*), /inventory$\{segment}
 
         # ===== Order Service (8084) =====
         # Controller: /api/v1/pedidos/**
