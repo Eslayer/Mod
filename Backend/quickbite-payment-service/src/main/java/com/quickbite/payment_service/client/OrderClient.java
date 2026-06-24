@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Map;
 
-@FeignClient(name = "order-service", url = "http://localhost:8084")
+@FeignClient(name = "order-service", url = "${services.order-service.url:http://localhost:8084}")
 public interface OrderClient {
 
     @GetMapping("/api/v1/pedidos/{orderId}")
